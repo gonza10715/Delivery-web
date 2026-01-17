@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Rápido</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">🍽 Delivery Rápido</div>
+    <button class="menu-btn" id="menu-btn">☰</button>
+</nav>
+
+<ul class="menu" id="menu">
+    <li>Inicio</li>
+    <li>Contacto</li>
+    <li>Ayuda</li>
+    <li>Soporte</li>
+</ul>
+
+<header>
+    <h1>Pedí tu comida favorita</h1>
+    <input type="text" id="buscador" placeholder="Buscar restaurante...">
+</header>
+
+<main>
+    <section class="restaurantes" id="lista-restaurantes"></section>
+
+    <section class="menu-comida">
+        <h2>Menú</h2>
+        <div id="menu-items"></div>
+    </section>
+
+    <section class="carrito">
+        <section class="pago">
+    <h2>💳 Pagar pedido</h2>
+
+    <div class="metodos">
+        <button onclick="mostrarPago()">Tarjeta Débito / Crédito</button>
+        <button onclick="pagarEfectivo()">Efectivo</button>
+        <button onclick="pagarMP()">Mercado Pago</button>
+    </div>
+
+    <div class="form-pago" id="form-pago">
+        <h3>Datos de la tarjeta</h3>
+
+        <div class="tarjetas">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+        </div>
+
+        <input type="text" placeholder="Nombre en la tarjeta">
+        <input type="text" placeholder="Número de tarjeta">
+        <input type="text" placeholder="Vencimiento MM/AA">
+        <input type="text" placeholder="CVV">
+
+        <button onclick="pagar()">Pagar</button>
+    </div>
+
+    <div class="confirmacion" id="confirmacion">
+        <h1>👍</h1>
+        <h2>¡Pago realizado!</h2>
+        <p>Su pedido está pago y confirmado con exito! 🚴‍♂️</p>
+    </div>
+</section>
+
+        <h2>🛒 Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <button id="btn-pagar">Finalizar compra</button>
+    </section>
+</main>
+
+<!-- MODAL DE PAGO -->
+<div id="pago-modal" class="modal">
+    <div class="modal-contenido">
+        <h2>Método de pago</h2>
+
+        <div class="pagos">
+            <button id="btn-efectivo">💵 Efectivo</button>
+            <button id="btn-tarjeta">💳 Tarjeta</button>
+            <button id="btn-mp">📱 Mercado Pago</button>
+        </div>
+
+        <div id="form-tarjeta" class="form-tarjeta">
+            <h3>Pago con tarjeta</h3>
+            <input type="text" placeholder="Nombre en la tarjeta">
+            <input type="text" placeholder="Número de tarjeta">
+            <input type="text" placeholder="Vencimiento MM/AA">
+            <input type="text" placeholder="CVV">
+            <button>Pagar</button>
+        </div>
+
+        <p id="mensaje-pago"></p>
+
+        <button id="cerrar-modal">Cerrar</button>
+    </div>
+</div>
+
+<footer>
+    <p>Delivery Rápido © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+<audio id="sonido-pago">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c0c2e0c44.mp3?filename=correct-2-46134.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
