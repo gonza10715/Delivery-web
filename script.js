@@ -185,11 +185,11 @@ btnTarjeta.addEventListener("click", () => {
 });
 
 btnEfectivo.addEventListener("click", () => {
-    mensajePago.textContent = "Pedido confirmado. Pagás en efectivo al recibirlo 💵";
+    mensajePago.textContent = "Simulación de efectivo completada. No existe un pedido real 💵";
 });
 
 btnMp.addEventListener("click", () => {
-    mensajePago.textContent = "Redirigiendo a Mercado Pago 📱";
+    mensajePago.textContent = "Simulación de Mercado Pago. No se realiza ninguna transferencia 📱";
 });
 
 buscador.addEventListener("input", e => {
@@ -207,9 +207,14 @@ function pagar() {
 }
 
 function pagarEfectivo() {
-    alert("Pagás en efectivo cuando llegue el Pedido a su puerta 🚴‍♂️");
+    alert("Pago en efectivo simulado. No se enviará ningún pedido 🚴‍♂️");
 }
 
 function pagarMP() {
-    alert("Redirigiendo a Mercado Pago...");
+    alert("Mercado Pago simulado: no se abrirá ninguna pasarela ni se cobrará dinero.");
 }
+
+const simularTarjeta = document.getElementById("simular-tarjeta");
+if (simularTarjeta) simularTarjeta.addEventListener("click", () => {
+    mensajePago.textContent = "Pago simulado. No se cobró dinero ni se creó ningún pedido.";
+});

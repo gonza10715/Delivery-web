@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Delivery Rápido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Demostración ficticia de delivery, sin pagos reales"><title>Delivery Rápido · Demo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
 
     <section class="carrito">
         <section class="pago">
-    <h2>💳 Pagar pedido</h2>
+    <h2>💳 Simular pedido</h2><p>Proyecto de demostración. No acepta pagos ni envía pedidos reales.</p>
 
     <div class="metodos">
         <button onclick="mostrarPago()">Tarjeta Débito / Crédito</button>
@@ -43,25 +43,15 @@
     </div>
 
     <div class="form-pago" id="form-pago">
-        <h3>Datos de la tarjeta</h3>
-
-        <div class="tarjetas">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
-        </div>
-
-        <input type="text" placeholder="Nombre en la tarjeta">
-        <input type="text" placeholder="Número de tarjeta">
-        <input type="text" placeholder="Vencimiento MM/AA">
-        <input type="text" placeholder="CVV">
-
-        <button onclick="pagar()">Pagar</button>
+      <h3>Tarjeta (simulación)</h3>
+      <p>Esta demo nunca solicita ni guarda datos bancarios.</p>
+      <button type="button" onclick="pagar()">Simular pago</button>
     </div>
 
     <div class="confirmacion" id="confirmacion">
         <h1>👍</h1>
-        <h2>¡Pago realizado!</h2>
-        <p>Su pedido está pago y confirmado con exito! 🚴‍♂️</p>
+        <h2>¡Simulación completada!</h2>
+        <p>No se cobró dinero ni se envió ningún pedido. 🚴‍♂️</p>
     </div>
 </section>
 
@@ -74,7 +64,7 @@
 <!-- MODAL DE PAGO -->
 <div id="pago-modal" class="modal">
     <div class="modal-contenido">
-        <h2>Método de pago</h2>
+        <h2>Método de pago (demo)</h2>
 
         <div class="pagos">
             <button id="btn-efectivo">💵 Efectivo</button>
@@ -83,12 +73,9 @@
         </div>
 
         <div id="form-tarjeta" class="form-tarjeta">
-            <h3>Pago con tarjeta</h3>
-            <input type="text" placeholder="Nombre en la tarjeta">
-            <input type="text" placeholder="Número de tarjeta">
-            <input type="text" placeholder="Vencimiento MM/AA">
-            <input type="text" placeholder="CVV">
-            <button>Pagar</button>
+          <h3>Pago simulado con tarjeta</h3>
+          <p>No ingreses datos reales. No se efectúan cobros.</p>
+          <button type="button" id="simular-tarjeta">Simular pago</button>
         </div>
 
         <p id="mensaje-pago"></p>
