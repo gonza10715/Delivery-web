@@ -1,0 +1,21 @@
+name: Delivery Web checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Check JavaScript syntax
+        run: |
+          node --check cart.js
+          node --check script.js
+      - name: Run cart tests
+        run: node --test tests/*.test.cjs
