@@ -1,220 +1,231 @@
-const restaurantes = [
-    {
-        nombre: "Pizzería Don Juan",
-        tipo: "Pizzas 🍕",
-        menu: [
-            { nombre: "Pizza Muzza", precio: 3500 },
-            { nombre: "Napolitana", precio: 4200 },
-            { nombre: "Porción", precio: 1200 }
-            
-        ]
-    },
-        {
-        nombre: "Ídolo Burger",
-        tipo: "Hamburguesas premium 🍔",
-        menu: [
-            { nombre: "Burger Ídolo", precio: 5500 },
-            { nombre: "Doble queso", precio: 6200 },
-            { nombre: "Papas Messi", precio: 2500 }
-        ]
-    },
-    {
-        nombre: "La Positiva",
-        tipo: "Comida casera 🍝",
-        menu: [
-            { nombre: "Milanesa con papas", precio: 4800 },
-            { nombre: "Fideos bolognesa", precio: 4200 },
-            { nombre: "Empanadas x6", precio: 3600 }
-        ]
-    },
-    {
-        nombre: "La Papa Frita de Messi",
-        tipo: "Fast food ⚽🍟",
-        menu: [
-            { nombre: "Super papas cheddar", precio: 3800 },
-            { nombre: "Combo Messi", precio: 5900 },
-            { nombre: "Papas clásicas", precio: 2200 }
-        ]
-    },
-    {
-        nombre: "La Casa Local",
-        tipo: "Parrilla & bodegón 🥩",
-        menu: [
-            { nombre: "Asado completo", precio: 7800 },
-            { nombre: "Bondiola", precio: 6200 },
-            { nombre: "Choripán", precio: 3200 }
-        ]
-    },
-    {
-        nombre: "Sabores Express",
-        tipo: "Comida rápida 🚀",
-        menu: [
-            { nombre: "Wrap pollo", precio: 4100 },
-            { nombre: "Tacos x3", precio: 3900 },
-            { nombre: "Combo express", precio: 5200 }
-        ]
-    },
-    {
-        nombre: "Burger House",
-        tipo: "Hamburguesas 🍔",
-        menu: [
-            { nombre: "Clásica", precio: 4000 },
-            { nombre: "Doble", precio: 5200 },
-            { nombre: "Papas", precio: 1800 }
-        ]
-    },
-    {
-        nombre: "Parrilla El Gaucho",
-        tipo: "Parrilla 🥩",
-        menu: [
-            { nombre: "Asado", precio: 6500 },
-            { nombre: "Vacío", precio: 7000 },
-            { nombre: "Entraña", precio: 7500 }
-        ]
-    },
-    {
-        nombre: "Shawarma King",
-        tipo: "Shawarma 🌯",
-        menu: [
-            { nombre: "Shawarma pollo", precio: 4500 },
-            { nombre: "Shawarma carne", precio: 4800 }
-        ]
-    },
-    {
-        nombre: "Dulce Tentación",
-        tipo: "Pastelería 🍰",
-        menu: [
-            { nombre: "Cheesecake", precio: 3200 },
-            { nombre: "Torta chocolate", precio: 3500 }
-        ]
-    },
-    {
-        nombre: "Helados Polar",
-        tipo: "Heladería 🍦",
-        menu: [
-            { nombre: "1/4 kg", precio: 2800 },
-            { nombre: "1/2 kg", precio: 5000 }
-        ]
-        
-    }
+"use strict";
+
+const restaurants = [
+  { id: "don-juan", name: "Pizzería Don Juan", specialty: "Pizzas", icon: "🍕", menu: [
+    { id: "muzza", name: "Pizza muzzarella", price: 3500 },
+    { id: "napolitana", name: "Pizza napolitana", price: 4200 },
+    { id: "porcion", name: "Porción de pizza", price: 1200 }
+  ] },
+  { id: "idolo", name: "Ídolo Burger", specialty: "Hamburguesas", icon: "🍔", menu: [
+    { id: "burger", name: "Burger Ídolo", price: 5500 },
+    { id: "doble", name: "Doble queso", price: 6200 },
+    { id: "papas", name: "Papas con cheddar", price: 2500 }
+  ] },
+  { id: "positiva", name: "La Positiva", specialty: "Comida casera", icon: "🍝", menu: [
+    { id: "milanesa", name: "Milanesa con papas", price: 4800 },
+    { id: "fideos", name: "Fideos a la boloñesa", price: 4200 },
+    { id: "empanadas", name: "Media docena de empanadas", price: 3600 }
+  ] },
+  { id: "papas", name: "La Papa Frita", specialty: "Papas y combos", icon: "🍟", menu: [
+    { id: "cheddar", name: "Papas con cheddar", price: 3800 },
+    { id: "combo", name: "Combo especial", price: 5900 },
+    { id: "clasicas", name: "Papas clásicas", price: 2200 }
+  ] },
+  { id: "casa-local", name: "La Casa Local", specialty: "Parrilla y bodegón", icon: "🥩", menu: [
+    { id: "asado", name: "Asado completo", price: 7800 },
+    { id: "bondiola", name: "Bondiola", price: 6200 },
+    { id: "chori", name: "Choripán", price: 3200 }
+  ] },
+  { id: "express", name: "Sabores Express", specialty: "Comida rápida", icon: "🌮", menu: [
+    { id: "wrap", name: "Wrap de pollo", price: 4100 },
+    { id: "tacos", name: "Tres tacos", price: 3900 },
+    { id: "combo", name: "Combo express", price: 5200 }
+  ] },
+  { id: "burger-house", name: "Burger House", specialty: "Hamburguesas", icon: "🍔", menu: [
+    { id: "clasica", name: "Burger clásica", price: 4000 },
+    { id: "doble", name: "Burger doble", price: 5200 },
+    { id: "papas", name: "Papas", price: 1800 }
+  ] },
+  { id: "gaucho", name: "Parrilla El Gaucho", specialty: "Parrilla", icon: "🥩", menu: [
+    { id: "asado", name: "Asado", price: 6500 },
+    { id: "vacio", name: "Vacío", price: 7000 },
+    { id: "entrana", name: "Entraña", price: 7500 }
+  ] },
+  { id: "shawarma", name: "Shawarma King", specialty: "Shawarma", icon: "🌯", menu: [
+    { id: "pollo", name: "Shawarma de pollo", price: 4500 },
+    { id: "carne", name: "Shawarma de carne", price: 4800 }
+  ] },
+  { id: "dulce", name: "Dulce Tentación", specialty: "Pastelería", icon: "🍰", menu: [
+    { id: "cheesecake", name: "Cheesecake", price: 3200 },
+    { id: "chocolate", name: "Torta de chocolate", price: 3500 }
+  ] },
+  { id: "polar", name: "Helados Polar", specialty: "Heladería", icon: "🍦", menu: [
+    { id: "cuarto", name: "Cuarto kilo", price: 2800 },
+    { id: "medio", name: "Medio kilo", price: 5000 }
+  ] }
 ];
 
-const listaRestaurantes = document.getElementById("lista-restaurantes");
-const menuItems = document.getElementById("menu-items");
-const listaCarrito = document.getElementById("lista-carrito");
-const buscador = document.getElementById("buscador");
+const formatPrice = value => new Intl.NumberFormat("es-AR", {
+  style: "currency", currency: "ARS", maximumFractionDigits: 0
+}).format(value);
+const normalize = value => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const elements = {
+  restaurants: document.getElementById("lista-restaurantes"),
+  menu: document.getElementById("menu-items"),
+  selectedRestaurant: document.getElementById("selected-restaurant"),
+  restaurantCount: document.getElementById("restaurant-count"),
+  search: document.getElementById("buscador"),
+  noResults: document.getElementById("no-results"),
+  cart: document.getElementById("lista-carrito"),
+  cartCount: document.getElementById("cart-count"),
+  navCount: document.getElementById("nav-count"),
+  total: document.getElementById("cart-total"),
+  empty: document.getElementById("empty-cart"),
+  checkout: document.getElementById("btn-pagar"),
+  clear: document.getElementById("clear-cart"),
+  dialog: document.getElementById("order-dialog"),
+  summary: document.getElementById("order-summary"),
+  confirm: document.getElementById("confirm-demo"),
+  confirmation: document.getElementById("order-confirmation"),
+  notification: document.getElementById("notification")
+};
 
-const btnPagar = document.getElementById("btn-pagar");
-const modal = document.getElementById("pago-modal");
-const cerrarModal = document.getElementById("cerrar-modal");
-const btnTarjeta = document.getElementById("btn-tarjeta");
-const btnEfectivo = document.getElementById("btn-efectivo");
-const btnMp = document.getElementById("btn-mp");
-const formTarjeta = document.getElementById("form-tarjeta");
-const mensajePago = document.getElementById("mensaje-pago");
-
-const menuBtn = document.getElementById("menu-btn");
-const menuNav = document.getElementById("menu");
-
-menuBtn.addEventListener("click", () => {
-    menuNav.style.display = menuNav.style.display === "block" ? "none" : "block";
-});
-
-function mostrarRestaurantes(filtro = "") {
-    listaRestaurantes.innerHTML = "";
-
-    restaurantes.filter(r => r.nombre.toLowerCase().includes(filtro.toLowerCase()))
-        .forEach(rest => {
-            const card = document.createElement("div");
-            card.className = "card";
-
-            card.innerHTML = `
-                <h3>${rest.nombre}</h3>
-                <p>${rest.tipo}</p>
-                <button>Ver menú</button>
-            `;
-
-            card.querySelector("button").addEventListener("click", () => {
-                mostrarMenu(rest);
-            });
-
-            listaRestaurantes.appendChild(card);
-        });
-}
-
-function mostrarMenu(restaurante) {
-    menuItems.innerHTML = `<h3>${restaurante.nombre}</h3>`;
-
-    restaurante.menu.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "menu-card";
-
-        div.innerHTML = `
-            <h4>${item.nombre}</h4>
-            <p>$${item.precio}</p>
-            <button>Agregar al carrito</button>
-        `;
-
-        div.querySelector("button").addEventListener("click", () => {
-            agregarAlCarrito(item.nombre, item.precio);
-        });
-
-        menuItems.appendChild(div);
+const STORE_KEY = "delivery-rapido-cart-v1";
+const catalog = new Map();
+for (const restaurant of restaurants) {
+  for (const item of restaurant.menu) {
+    const id = restaurant.id + ":" + item.id;
+    catalog.set(id, {
+      id, name: item.name, restaurant: restaurant.name, price: item.price
     });
+  }
 }
 
-function agregarAlCarrito(nombre, precio) {
-    const li = document.createElement("li");
-    li.textContent = `${nombre} - $${precio}`;
-    listaCarrito.appendChild(li);
+function loadCart() {
+  try {
+    return DeliveryCart.restoreCart(JSON.parse(localStorage.getItem(STORE_KEY)), catalog);
+  } catch {
+    return [];
+  }
 }
 
-btnPagar.addEventListener("click", () => {
-    modal.style.display = "flex";
-});
+let cart = loadCart();
+let selectedRestaurantId = restaurants[0].id;
 
-cerrarModal.addEventListener("click", () => {
-    modal.style.display = "none";
-    formTarjeta.style.display = "none";
-    mensajePago.textContent = "";
-});
-
-btnTarjeta.addEventListener("click", () => {
-    formTarjeta.style.display = "block";
-    mensajePago.textContent = "";
-});
-
-btnEfectivo.addEventListener("click", () => {
-    mensajePago.textContent = "Simulación de efectivo completada. No existe un pedido real 💵";
-});
-
-btnMp.addEventListener("click", () => {
-    mensajePago.textContent = "Simulación de Mercado Pago. No se realiza ninguna transferencia 📱";
-});
-
-buscador.addEventListener("input", e => {
-    mostrarRestaurantes(e.target.value);
-});
-
-mostrarRestaurantes();
-function mostrarPago() {
-    document.getElementById("form-pago").style.display = "block";
+function node(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
 }
 
-function pagar() {
-    document.getElementById("form-pago").style.display = "none";
-    document.getElementById("confirmacion").style.display = "block";
+function notify(message) {
+  elements.notification.textContent = message;
 }
 
-function pagarEfectivo() {
-    alert("Pago en efectivo simulado. No se enviará ningún pedido 🚴‍♂️");
+function setCart(next) {
+  cart = next;
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(cart.map(({ id, quantity }) => ({ id, quantity }))));
+  } catch {
+    // Demo remains usable when storage is unavailable or disabled.
+  }
+  renderCart();
 }
 
-function pagarMP() {
-    alert("Mercado Pago simulado: no se abrirá ninguna pasarela ni se cobrará dinero.");
+function renderRestaurants(query = "") {
+  const term = normalize(query.trim());
+  const found = restaurants.filter(rest =>
+    normalize(rest.name + " " + rest.specialty).includes(term));
+  elements.restaurants.replaceChildren();
+  elements.restaurantCount.textContent = found.length + " de " + restaurants.length;
+  elements.noResults.hidden = found.length > 0;
+  for (const rest of found) {
+    const card = node("article", "restaurant-card");
+    if (rest.id === selectedRestaurantId) card.classList.add("is-selected");
+    card.append(node("span", "restaurant-icon", rest.icon));
+    const details = node("div", "restaurant-info");
+    details.append(node("h3", "", rest.name), node("p", "", rest.specialty));
+    const button = node("button", "small-button", rest.id === selectedRestaurantId ? "Menú abierto" : "Ver menú");
+    button.type = "button";
+    button.setAttribute("aria-label", "Ver menú de " + rest.name);
+    button.addEventListener("click", () => {
+      selectedRestaurantId = rest.id;
+      renderRestaurants(elements.search.value);
+      renderMenu(rest);
+      document.getElementById("menu").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    card.append(details, button);
+    elements.restaurants.append(card);
+  }
 }
 
-const simularTarjeta = document.getElementById("simular-tarjeta");
-if (simularTarjeta) simularTarjeta.addEventListener("click", () => {
-    mensajePago.textContent = "Pago simulado. No se cobró dinero ni se creó ningún pedido.";
+function renderMenu(rest) {
+  elements.selectedRestaurant.textContent = rest.name + " · " + rest.specialty;
+  elements.menu.replaceChildren();
+  for (const item of rest.menu) {
+    const card = node("article", "dish-card");
+    const information = node("div");
+    information.append(node("h3", "", item.name), node("p", "", formatPrice(item.price)));
+    const button = node("button", "add-button", "Agregar +");
+    button.type = "button";
+    button.setAttribute("aria-label", "Agregar " + item.name + " al carrito");
+    button.addEventListener("click", () => {
+      setCart(DeliveryCart.addItem(cart, catalog.get(rest.id + ":" + item.id)));
+      notify(item.name + " agregado al carrito");
+    });
+    card.append(information, button);
+    elements.menu.append(card);
+  }
+}
+
+function renderCart() {
+  elements.cart.replaceChildren();
+  const count = DeliveryCart.countItems(cart);
+  elements.cartCount.textContent = count;
+  elements.navCount.textContent = count;
+  elements.total.textContent = formatPrice(DeliveryCart.subtotal(cart));
+  elements.empty.hidden = cart.length > 0;
+  elements.checkout.disabled = !cart.length;
+  elements.clear.disabled = !cart.length;
+
+  for (const item of cart) {
+    const row = node("li", "cart-item");
+    const detail = node("div", "cart-item-detail");
+    detail.append(node("strong", "", item.name),
+                  node("small", "", item.restaurant),
+                  node("span", "item-price", formatPrice(item.price * item.quantity)));
+
+    const actions = node("div", "item-actions");
+    const minus = node("button", "stepper", "−");
+    minus.type = "button";
+    minus.setAttribute("aria-label", "Quitar una unidad de " + item.name);
+    minus.addEventListener("click", () => setCart(DeliveryCart.setQuantity(cart, item.id, item.quantity - 1)));
+    const quantity = node("span", "quantity", String(item.quantity));
+    quantity.setAttribute("aria-label", "Cantidad: " + item.quantity);
+    const plus = node("button", "stepper", "+");
+    plus.type = "button";
+    plus.disabled = item.quantity >= DeliveryCart.MAX_QUANTITY;
+    plus.setAttribute("aria-label", "Agregar una unidad de " + item.name);
+    plus.addEventListener("click", () => setCart(DeliveryCart.addItem(cart, catalog.get(item.id))));
+    const remove = node("button", "remove-button", "Eliminar");
+    remove.type = "button";
+    remove.setAttribute("aria-label", "Eliminar " + item.name + " del carrito");
+    remove.addEventListener("click", () => setCart(DeliveryCart.removeItem(cart, item.id)));
+    actions.append(minus, quantity, plus, remove);
+    row.append(detail, actions);
+    elements.cart.append(row);
+  }
+}
+
+elements.search.addEventListener("input", event => renderRestaurants(event.target.value));
+elements.clear.addEventListener("click", () => { setCart([]); notify("Carrito vaciado"); });
+elements.checkout.addEventListener("click", () => {
+  if (!cart.length) return;
+  elements.summary.textContent = DeliveryCart.countItems(cart) + " productos · " +
+    formatPrice(DeliveryCart.subtotal(cart)) + " (total ilustrativo)";
+  elements.confirmation.hidden = true;
+  elements.confirm.disabled = false;
+  elements.dialog.showModal();
 });
+elements.confirm.addEventListener("click", () => {
+  if (!cart.length) return;
+  elements.confirmation.hidden = false;
+  elements.confirm.disabled = true;
+  setCart([]);
+  notify("Simulación completada. No se cobró dinero ni se envió un pedido.");
+});
+
+renderRestaurants();
+renderMenu(restaurants[0]);
+renderCart();

@@ -1,97 +1,113 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Demostración ficticia de delivery, sin pagos reales"><title>Delivery Rápido · Demo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12251f">
+  <meta name="description" content="Demo interactiva de delivery con búsqueda, menú y carrito. Los pedidos son simulados y no se realizan pagos.">
+  <title>Delivery Rápido — catálogo y pedidos de demostración</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cart.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Delivery Rápido, inicio">
+        <span class="brand-mark" aria-hidden="true">DR</span>
+        <span>delivery<span class="brand-light">rápido</span></span>
+      </a>
+      <nav aria-label="Navegación principal" class="header-nav">
+        <a href="#restaurantes">Restaurantes</a>
+        <a href="#carrito">Mi carrito <span id="nav-count" class="count-pill">0</span></a>
+      </nav>
+    </div>
+  </header>
 
-<nav class="navbar">
-    <div class="logo">🍽 Delivery Rápido</div>
-    <button class="menu-btn" id="menu-btn">☰</button>
-</nav>
-
-<ul class="menu" id="menu">
-    <li>Inicio</li>
-    <li>Contacto</li>
-    <li>Ayuda</li>
-    <li>Soporte</li>
-</ul>
-
-<header>
-    <h1>Pedí tu comida favorita</h1>
-    <input type="text" id="buscador" placeholder="Buscar restaurante...">
-</header>
-
-<main>
-    <section class="restaurantes" id="lista-restaurantes"></section>
-
-    <section class="menu-comida">
-        <h2>Menú</h2>
-        <div id="menu-items"></div>
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">Explorá sabores · Demo interactiva</p>
+          <h1 id="hero-title">Elegí algo <em>rico.</em><br>Armá tu pedido.</h1>
+          <p class="hero-text">Recorré restaurantes ficticios, elegí platos y probá un carrito con cantidades y totales. Sin cuentas ni pagos reales.</p>
+          <a class="hero-link" href="#restaurantes">Explorar restaurantes <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-circle"><span>Una buena comida<br>empieza acá.</span></div>
+          <div class="hero-star">✳</div>
+          <div class="hero-small">HECHO PARA ELEGIR</div>
+        </div>
+      </div>
     </section>
 
-    <section class="carrito">
-        <section class="pago">
-    <h2>💳 Simular pedido</h2><p>Proyecto de demostración. No acepta pagos ni envía pedidos reales.</p>
+    <div class="container content-grid">
+      <div class="catalog">
+        <section id="restaurantes" aria-labelledby="restaurants-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow dark">Encontrá tu próximo plato</p>
+              <h2 id="restaurants-heading">Restaurantes</h2>
+            </div>
+            <span id="restaurant-count" class="results-count" aria-live="polite"></span>
+          </div>
+          <label for="buscador" class="field-label">Buscar por nombre o especialidad</label>
+          <input id="buscador" class="search" type="search" placeholder="Por ejemplo: pizza, parrilla, burger…" autocomplete="off">
+          <div id="lista-restaurantes" class="restaurant-grid" aria-live="polite"></div>
+          <p id="no-results" class="empty-message" hidden>No encontramos restaurantes con esa búsqueda. Probá otra palabra.</p>
+        </section>
 
-    <div class="metodos">
-        <button onclick="mostrarPago()">Tarjeta Débito / Crédito</button>
-        <button onclick="pagarEfectivo()">Efectivo</button>
-        <button onclick="pagarMP()">Mercado Pago</button>
-    </div>
+        <section id="menu" class="menu-section" aria-labelledby="menu-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow dark">Lo que podés pedir</p>
+              <h2 id="menu-heading">Menú</h2>
+              <p id="selected-restaurant" class="section-subtitle"></p>
+            </div>
+          </div>
+          <div id="menu-items" class="menu-grid"></div>
+        </section>
+      </div>
 
-    <div class="form-pago" id="form-pago">
-      <h3>Tarjeta (simulación)</h3>
-      <p>Esta demo nunca solicita ni guarda datos bancarios.</p>
-      <button type="button" onclick="pagar()">Simular pago</button>
-    </div>
-
-    <div class="confirmacion" id="confirmacion">
-        <h1>👍</h1>
-        <h2>¡Simulación completada!</h2>
-        <p>No se cobró dinero ni se envió ningún pedido. 🚴‍♂️</p>
-    </div>
-</section>
-
-        <h2>🛒 Carrito</h2>
-        <ul id="lista-carrito"></ul>
-        <button id="btn-pagar">Finalizar compra</button>
-    </section>
-</main>
-
-<!-- MODAL DE PAGO -->
-<div id="pago-modal" class="modal">
-    <div class="modal-contenido">
-        <h2>Método de pago (demo)</h2>
-
-        <div class="pagos">
-            <button id="btn-efectivo">💵 Efectivo</button>
-            <button id="btn-tarjeta">💳 Tarjeta</button>
-            <button id="btn-mp">📱 Mercado Pago</button>
+      <aside id="carrito" class="cart-panel" aria-labelledby="cart-heading">
+        <div class="cart-top">
+          <div class="cart-label">TU SELECCIÓN</div>
+          <h2 id="cart-heading">Mi carrito <span id="cart-count" class="count-pill light">0</span></h2>
+          <p>Los precios son ficticios y el pedido es una simulación.</p>
         </div>
-
-        <div id="form-tarjeta" class="form-tarjeta">
-          <h3>Pago simulado con tarjeta</h3>
-          <p>No ingreses datos reales. No se efectúan cobros.</p>
-          <button type="button" id="simular-tarjeta">Simular pago</button>
+        <ul id="lista-carrito" class="cart-items" aria-live="polite"></ul>
+        <p id="empty-cart" class="cart-empty">Todavía no agregaste platos. Elegí algo del menú para empezar.</p>
+        <div class="cart-bottom">
+          <div class="total-row"><span>Subtotal</span><strong id="cart-total">$ 0</strong></div>
+          <p class="cart-disclaimer">Sin envío ni impuestos calculados. No se realiza ningún cobro.</p>
+          <button type="button" id="btn-pagar" class="checkout-button" disabled>Simular pedido</button>
+          <button type="button" id="clear-cart" class="text-button" disabled>Vaciar carrito</button>
         </div>
-
-        <p id="mensaje-pago"></p>
-
-        <button id="cerrar-modal">Cerrar</button>
+      </aside>
     </div>
-</div>
+  </main>
 
-<footer>
-    <p>Delivery Rápido © 2026</p>
-</footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Delivery Rápido · Proyecto de demostración</span>
+      <a href="https://gonza10715.github.io/gonzalo/">Ver portfolio de desarrollo</a>
+    </div>
+  </footer>
 
-<script src="script.js"></script>
-<audio id="sonido-pago">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c0c2e0c44.mp3?filename=correct-2-46134.mp3" type="audio/mpeg">
-</audio>
-
+  <dialog id="order-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="dialog-content">
+      <p class="eyebrow dark">Revisión del pedido</p>
+      <h2 id="dialog-title">Simulá tu pedido</h2>
+      <p id="dialog-description">Esta demostración no envía pedidos, no solicita tarjetas y no cobra dinero.</p>
+      <div id="order-summary" class="dialog-summary"></div>
+      <p id="order-confirmation" class="confirmation" role="status" hidden>¡Simulación completada! No se generó una compra real.</p>
+      <div class="dialog-actions">
+        <button type="button" id="confirm-demo" class="checkout-button">Confirmar simulación</button>
+        <form method="dialog"><button type="submit" class="secondary-button">Cerrar</button></form>
+      </div>
+    </div>
+  </dialog>
+  <div id="notification" role="status" aria-live="polite" class="sr-only"></div>
 </body>
 </html>
