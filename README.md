@@ -31,7 +31,19 @@ node --check script.js
 node --test tests/*.test.cjs
 ```
 
-El workflow de GitHub Actions ejecuta los mismos controles en cada pull request y push a `main`.
+También hay pruebas de extremo a extremo con **Playwright y Chromium**, que ejecutan la aplicación por HTTP en un servidor local. Cubren búsqueda y estado sin resultados, agregado y cambio de cantidad del carrito, persistencia tras recargar, confirmación simulada, ausencia de errores JavaScript y desbordamiento horizontal, en dos tamaños: **1365 × 900 (PC)** y **390 × 844 (celular)**.
+
+Para ejecutarlas localmente (Python 3):
+
+```bash
+python -m pip install playwright==1.57.0
+python -m playwright install chromium
+python tests/browser_smoke.py
+```
+
+En Linux con dependencias del sistema faltantes, seguí las instrucciones oficiales de Playwright para instalarlas. Estas pruebas usan un servidor HTTP temporal y datos ficticios; no hacen pedidos ni cobran dinero.
+
+El workflow [Delivery Web checks](.github/workflows/checks.yml) ejecuta tanto las pruebas de Node.js como las de Chromium en cada pull request y push a `main`. Podés consultar [los resultados en GitHub Actions](https://github.com/gonza10715/Delivery-web/actions). Las pruebas automatizadas son una comprobación útil, pero no sustituyen una revisión completa de accesibilidad o de seguridad.
 
 ## Estructura
 
@@ -40,6 +52,7 @@ El workflow de GitHub Actions ejecuta los mismos controles en cada pull request 
 - `script.js`: catálogo, eventos y renderizado.
 - `cart.js`: operaciones del carrito sin dependencias del DOM, reutilizables en pruebas.
 - `tests/cart.test.cjs`: pruebas del carrito, validaciones, totales y restauración de datos.
+- `tests/browser_smoke.py`: pruebas funcionales de la interfaz en Chromium para escritorio y celular.
 
 ## Alcance
 
